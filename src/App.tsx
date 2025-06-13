@@ -1,10 +1,13 @@
 import { useContext, useEffect, useState } from "react";
-import Navbar from "./Components/Navbar,";
+import Navbar from "./Components/Navbar";
 import SimulationCardsList from "./Components/SimulationCardsList";
 import { DataContext } from "./Contexts/SettingsContext";
 import FiltersBar from "./Components/FilterBar";
 import { AuthContext } from "./Contexts/SettingAuth";
-import { getSimulationDataByDay, deleteSimulation } from "./Shared/ApiFunctionCaller";
+import {
+  getSimulationDataByDay,
+  deleteSimulation,
+} from "./Shared/ApiFunctionCaller";
 
 function App() {
   const {
@@ -29,8 +32,12 @@ function App() {
     SimulationData: SimulationData[];
   }
 
-  const [allSimulationCards, setAllSimulationCards] = useState<SimulationCardByDay[]>([]);
-  const [filteredSimulationCards, setFilteredSimulationCards] = useState<SimulationCardByDay[]>([]);
+  const [allSimulationCards, setAllSimulationCards] = useState<
+    SimulationCardByDay[]
+  >([]);
+  const [filteredSimulationCards, setFilteredSimulationCards] = useState<
+    SimulationCardByDay[]
+  >([]);
 
   // Fetch all cards once
   useEffect(() => {
@@ -90,13 +97,16 @@ function App() {
     const apiTime = title.replace(/-/g, ":");
     try {
       await deleteSimulation(idToken, apiDate, apiTime);
-      setAllSimulationCards(prev =>
-        prev.map(dayObj => ({
-          ...dayObj,
-          SimulationData: dayObj.SimulationData.filter(
-            sim => sim.title !== title || dayObj.date.toLocaleDateString() !== date
-          )
-        })).filter(dayObj => dayObj.SimulationData.length > 0)
+      setAllSimulationCards((prev) =>
+        prev
+          .map((dayObj) => ({
+            ...dayObj,
+            SimulationData: dayObj.SimulationData.filter(
+              (sim) =>
+                sim.title !== title || dayObj.date.toLocaleDateString() !== date
+            ),
+          }))
+          .filter((dayObj) => dayObj.SimulationData.length > 0)
       );
     } catch {
       alert("Failed to delete simulation");

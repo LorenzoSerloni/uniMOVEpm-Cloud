@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import App from "./App";
 import ErrorPage from "./ErrorPage";
 import ProtectedRoute from "./ProtectedRoute";
-import Visualization from "./Visualization";
+import Visualization from "./VisualizationPage";
 
 export default function Router() {
   return (

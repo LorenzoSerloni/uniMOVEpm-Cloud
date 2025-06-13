@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { getCsvFile } from "./Shared/ApiFunctionCaller";
 import { AuthContext } from "./Contexts/SettingAuth";
 import { DataContext } from "./Contexts/SettingsContext";
-import Navbar from "./Components/Navbar,";
+import Navbar from "./Components/Navbar";
 import ChartSkeleton from "./Components/ChartSkeleton";
 import ChartCard from "./Components/ChartCard";
 import HeaderRow from "./Components/HeaderRow";
@@ -40,7 +40,10 @@ export default function Visualization() {
   const realTime = title;
   const { idToken } = useContext(AuthContext);
   const { dark } = useContext(DataContext);
-  const [csvData, setCsvData] = useState<{ headers: string[]; data: string[][] } | null>(null);
+  const [csvData, setCsvData] = useState<{
+    headers: string[];
+    data: string[][];
+  } | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -56,8 +59,12 @@ export default function Visualization() {
 
   if (!csvData) {
     return (
-      <div className={`h-dvh w-full flex flex-col ${dark ? "bg-black" : "bg-white"}`}>
-        <Navbar />
+      <div
+        className={`h-dvh w-full flex flex-col ${
+          dark ? "bg-black" : "bg-white"
+        }`}
+      >
+        <Navbar height="h-17.5"/>
         <div className="flex flex-col flex-1 items-center justify-center w-full overflow-auto h-full">
           <HeaderRow date={date} realTime={realTime} dark={dark} />
           <div className="w-full grid grid-cols-2 md:grid-cols-2 gap-8 px-8 py-8 col-span-1">
@@ -82,13 +89,21 @@ export default function Visualization() {
         return val === undefined || val === "" ? null : Number(val);
       });
       return (
-        <ChartCard key={header + idx} header={header} x={x} y={y} headers={headers} />
+        <ChartCard
+          key={header + idx}
+          header={header}
+          x={x}
+          y={y}
+          headers={headers}
+        />
       );
     });
 
   return (
-    <div className={`h-dvh w-full flex flex-col ${dark ? "bg-black" : "bg-white"}`}>
-      <Navbar />
+    <div
+      className={`h-dvh w-full flex flex-col ${dark ? "bg-black" : "bg-white"}`}
+    >
+      <Navbar height="h-17.5"/>
       <div className="flex flex-col flex-1 items-center justify-center w-full overflow-auto h-full">
         <HeaderRow date={date} realTime={realTime} dark={dark} />
         <div className="w-full grid grid-cols-2 md:grid-cols-2 gap-8 px-8 py-8 col-span-1">

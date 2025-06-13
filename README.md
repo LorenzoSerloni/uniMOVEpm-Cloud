@@ -1,6 +1,11 @@
+![UniMovePm Logo](./public/Univpm_Logo.svg)
 # UniMovePM Cloud
 
-A modern web dashboard for visualizing and managing simulation data, built with React, TypeScript, Vite, and Chart.js.  
+
+![Dashboard Page](.\public\Homepage.png)
+![Visualization Page](.\public\VisualizationPage.png)
+
+This projetc is linked to the uniMOVEpm analytics dashboard web based comprehensive analytics dashboard designed for monitoring and controlling autonomous vehicles in the Bosch Future Mobility Challenge. The idea behind the project is to buils a modern cloud hosted website for visualizing and managing simulation data coming from the numerous simulation sessions in preparation for the competition and also for deep analysis during the competition days to improve the performance of the car. The website is built with React, TypeScript, Vite, and Chart.js.  
 Authentication is handled via AWS Cognito, and the app is ready for containerized deployment (Docker, AWS ECS).
 
 ---
@@ -70,11 +75,6 @@ Authentication is handled via AWS Cognito, and the app is ready for containerize
 
 - Push your Docker image to AWS ECR.
 - Create an ECS cluster and service using the image.
-- Expose port 8080 (or your chosen port) via a load balancer or security group.
-- See [AWS ECS documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-launch-types.html) for details.
-
----
-
 ## Project Structure
 
 ```
@@ -112,5 +112,5 @@ This project is for educational and demonstration purposes.
 
 ## Author
 
-Developed by Lorenzo Serloni & Simone Marconi.  
+Developed by Lorenzo Serloni & Simone Marconi.
 
