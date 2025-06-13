@@ -1,54 +1,119 @@
-# React + TypeScript + Vite
+# UniMovePM Cloud
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern web dashboard for visualizing and managing simulation data, built with React, TypeScript, Vite, and Chart.js.  
+Authentication is handled via AWS Cognito, and the app is ready for containerized deployment (Docker, AWS ECS).
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- **Authentication:** Secure login with AWS Cognito.
+- **Simulation Management:** View, filter, and delete simulation cards grouped by day.
+- **Data Visualization:** Interactive charts for simulation data using Chart.js.
+- **Responsive UI:** Clean, modern interface with light/dark mode support.
+- **Skeleton Loaders:** Smooth loading experience with animated skeletons for cards and charts.
+- **Production Ready:** Dockerized for easy deployment (local, cloud, ECS, etc).
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Getting Started
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (v18+ recommended)
+- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
+- [Docker](https://www.docker.com/) (for containerization)
+- AWS account (for Cognito/ECS deployment)
+
+### Local Development
+
+1. **Install dependencies:**
+   ```sh
+   npm install
+   # or
+   yarn install
+   ```
+
+2. **Run the app:**
+   ```sh
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+3. **Open your browser:**  
+   Visit [http://localhost:5173](http://localhost:5173) (or the port shown in your terminal).
+
+---
+
+### Docker
+
+1. **Build the image:**
+   ```sh
+   docker build -t trial-image .
+   ```
+
+2. **Run the container:**
+   ```sh
+   docker run -p 8080:3000 trial-image
+   ```
+
+3. **Or use Docker Compose:**
+   ```sh
+   docker compose up --build
+   ```
+
+   The app will be available at [http://localhost:8080](http://localhost:8080).
+
+---
+
+### AWS ECS Deployment
+
+- Push your Docker image to AWS ECR.
+- Create an ECS cluster and service using the image.
+- Expose port 8080 (or your chosen port) via a load balancer or security group.
+- See [AWS ECS documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-launch-types.html) for details.
+
+---
+
+## Project Structure
+
+```
+src/
+  Components/         # React components (cards, charts, skeletons, etc)
+  Contexts/           # React context providers (auth, settings)
+  Shared/             # Shared utilities and interfaces
+  App.tsx             # Main app component
+  Router.tsx          # Routing logic
+  Visualization.tsx   # Visualization page
+  ...
+public/
+  ...
+Dockerfile
+docker-compose.yml
+vite.config.ts
+.gitignore
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Customization
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+- **Cognito:** Configure your AWS Cognito settings in the authentication context/provider.
+- **API:** Update `getCsvFile` and related API calls in `src/Shared/ApiFunctionCaller.ts` as needed.
+- **Styling:** Tailwind CSS is used for styling; customize classes as you like.
+
+---
+
+## License
+
+This project is for educational and demonstration purposes.  
+For production use, please review and update security, error handling, and deployment settings.
+
+---
+
+## Author
+
+Developed by [Your Name/Team].  
+Feel free to contribute or open issues!
+
