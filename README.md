@@ -99,21 +99,19 @@ vite.config.ts
 
 ## Customization
 
-- **Cognito:** Configure your AWS Cognito settings in the authentication context/provider.
-- **API:** Update `getCsvFile` and related API calls in `src/Shared/ApiFunctionCaller.ts` as needed.
-- **Styling:** Tailwind CSS is used for styling; customize classes as you like.
+- **Cognito:** Configured AWS Cognito settings in the authentication context/provider.
+- **API:** Update related API calls in `src/Shared/ApiFunctionCaller.ts` as needed.
+- **Styling:** Tailwind CSS is used for styling.
 
 ---
 
 ## License
 
-This project is for educational and demonstration purposes.  
-For production use, please review and update security, error handling, and deployment settings.
+This project is for educational and demonstration purposes.
 
 ---
 
 ## Author
 
-Developed by [Your Name/Team].  
-Feel free to contribute or open issues!
+Developed by Lorenzo Serloni & Simone Marconi.  
 
