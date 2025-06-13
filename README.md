@@ -42,7 +42,7 @@ Authentication is handled via AWS Cognito, and the app is ready for containerize
    ```
 
 3. **Open your browser:**  
-   Visit [http://localhost:5173](http://localhost:5173) (or the port shown in your terminal).
+   Visit [http://localhost:8080](http://localhost:8080) (or the port shown in your terminal).
 
 ---
 
