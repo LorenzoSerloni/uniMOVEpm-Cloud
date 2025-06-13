@@ -8,9 +8,8 @@ Authentication is handled via AWS Cognito, and the app is ready for containerize
 ## Features
 
 - **Authentication:** Secure login with AWS Cognito.
-- **Simulation Management:** View, filter, and delete simulation cards grouped by day.
+- **Simulation Management:** View, filter, and delete simulation.
 - **Data Visualization:** Interactive charts for simulation data using Chart.js.
-- **Responsive UI:** Clean, modern interface with light/dark mode support.
 - **Skeleton Loaders:** Smooth loading experience with animated skeletons for cards and charts.
 - **Production Ready:** Dockerized for easy deployment (local, cloud, ECS, etc).
 
