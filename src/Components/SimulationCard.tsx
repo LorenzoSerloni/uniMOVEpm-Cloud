@@ -16,9 +16,8 @@ export default function SimulationCard({
 
   // Handler for card click
   const handleClick = () => {
-    // Use yyyy-MM-dd for date and replace : with - in time (title)
+    // Use yyyy-MM-dd for date and replace : with - in time
     if (date) {
-      // Remove any slashes or quotes from date, just in case
       const safeDate = date.replace(/\//g, "-").replace(/"/g, "");
       // Replace : with - in time for URL safety
       const safeTime = title.replace(/:/g, "-");

@@ -3,7 +3,7 @@ import { AuthContext } from "../Contexts/SettingAuth";
 import { IoMdLogOut } from "react-icons/io";
 
 interface NavbarProps {
-  height?: string; // e.g. "h-20"
+  height?: string;
 }
 
 export default function Navbar({ height = "h-20" }: NavbarProps) {

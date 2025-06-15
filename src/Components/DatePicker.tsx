@@ -11,7 +11,7 @@ interface DatePickerProps {
   setSelectDate: React.Dispatch<React.SetStateAction<string>>;
   selectedTime: string;
   setSelectedTime: React.Dispatch<React.SetStateAction<string>>;
-  name: "startingDate" | "endingDate"; // add this line
+  name: "startingDate" | "endingDate";
 }
 
 export default function DatePicker({
