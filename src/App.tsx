@@ -91,17 +91,11 @@ function App() {
     const apiTime = title.replace(/-/g, ":");
     try {
       await deleteSimulation(idToken, apiDate, apiTime);
-      setAllSimulationCards((prev) =>
-        prev
-          .map((dayObj) => ({
-            ...dayObj,
-            SimulationData: dayObj.SimulationData.filter(
-              (sim) =>
-                sim.title !== title || dayObj.date.toLocaleDateString() !== date
-            ),
-          }))
-          .filter((dayObj) => dayObj.SimulationData.length > 0)
-      );
+
+      // Refetch all simulation cards after delete
+      const files = await getSimulationDataByDay(idToken);
+      setAllSimulationCards(files);
+
     } catch {
       alert("Failed to delete simulation");
     }

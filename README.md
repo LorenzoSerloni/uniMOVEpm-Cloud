@@ -71,10 +71,52 @@ Authentication is handled via AWS Cognito, and the app is ready for containerize
 
 ---
 
-### AWS ECS Deployment
+## Architecture
 
-- Push your Docker image to AWS ECR.
-- Create an ECS cluster and service using the image.
+The architecture of **UniMovePM Cloud** is designed to be scalable, secure, and cloud-native, leveraging AWS managed services for authentication, storage, and compute. The system efficiently handles simulation data from autonomous vehicle sessions and provides a seamless analytics experience for users.
+
+### Overview
+
+At a high level, the architecture consists of:
+
+- **Frontend**: A React + Vite web application, containerized with Docker and deployed on AWS Lightsail for hosting.
+- **Authentication**: Managed by AWS Cognito, providing secure user login and token management.
+- **API Gateway**: Acts as the entry point for all backend API requests, routing them securely to AWS Lambda functions.
+- **Backend (Lambda)**: AWS Lambda functions process API requests, handle business logic, and interact with storage.
+- **Storage**: Simulation data and results are stored in AWS S3 buckets.
+- **Container Registry**: Docker images are stored in Docker Hub and deployed to Lightsail.
+
+All components communicate securely, and the architecture supports easy scaling and updates.
+
+### Diagram
+
+Below is the architecture diagram for UniMovePM Cloud:
+
+![Architecture Diagram](./public/Architetture.svg)
+
+---
+
+### Component Details
+
+- **Frontend (React App on Lightsail)**:  
+  Provides the user interface for authentication, simulation management, and data visualization. Deployed as a Docker container on AWS Lightsail, with images pulled from Docker Hub.
+
+- **AWS Cognito**:  
+  Handles user authentication and authorization, issuing tokens used by the frontend to access protected resources.
+
+- **API Gateway**:  
+  Exposes RESTful endpoints for the frontend, forwarding requests to Lambda functions.
+
+- **AWS Lambda**:  
+  Stateless compute functions that process API requests, interact with S3 for data storage/retrieval, and enforce business logic.
+
+- **AWS S3**:  
+  Stores simulation session data, results, and any static assets needed by the application.
+
+---
+
+This architecture ensures that UniMovePM Cloud is robust, maintainable, and ready for production.
+
 ## Project Structure
 
 ```
