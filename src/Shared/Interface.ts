@@ -14,6 +14,15 @@ export interface DataPreview{
   SimulationData: SimulationCard[]
 }
 
+export  interface SimulationData {
+    title: string;
+  }
+
+export interface SimulationCardByDay {
+    date: Date;
+    SimulationData: SimulationData[];
+  }
+
 export type Week = {
   mondays: string;
   tuesdays: string;

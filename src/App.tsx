@@ -8,6 +8,7 @@ import {
   getSimulationDataByDay,
   deleteSimulation,
 } from "./Shared/ApiFunctionCaller";
+import type { SimulationCardByDay } from "./Shared/Interface";
 
 function App() {
   const {
@@ -22,15 +23,6 @@ function App() {
   } = useContext(DataContext);
 
   const { idToken } = useContext(AuthContext);
-
-  interface SimulationData {
-    title: string;
-  }
-
-  interface SimulationCardByDay {
-    date: Date;
-    SimulationData: SimulationData[];
-  }
 
   const [allSimulationCards, setAllSimulationCards] = useState<
     SimulationCardByDay[]
@@ -132,6 +124,7 @@ function App() {
         setSelectedEndingTime={setSelectedEndingTime}
       />
       <SimulationCardsList
+        allSimulationCards={allSimulationCards}
         simulationCardsMockByDay={filteredSimulationCards}
         onDeleteSimulation={handleDeleteSimulation}
       />
