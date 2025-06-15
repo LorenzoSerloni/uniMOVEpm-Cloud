@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState, type ReactNode } from "react";
 import { AuthContext } from "./SettingAuth";
 import { useLocation, useNavigate } from "react-router-dom";
 
-const COGNITO_LOGIN_URL = "https://eu-north-1qhkbsil11.auth.eu-north-1.amazoncognito.com/login/continue?client_id=2ntetl7enceatficlfvlu09nqp&redirect_uri=http%3A%2F%2Flocalhost%3A8080&response_type=token&scope=email+openid+phone";
+const COGNITO_LOGIN_URL = import.meta.env.VITE_COGNITO_LOGIN_URL as string;
 
 function getIdTokenFromUrl(): string | null {
   const hash = window.location.hash;

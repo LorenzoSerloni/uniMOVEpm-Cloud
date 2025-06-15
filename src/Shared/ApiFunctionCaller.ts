@@ -1,6 +1,6 @@
 import type { DataPreview, SimulationCard } from "./Interface";
 
-const BASE_URL = "https://r5d6khydzg.execute-api.eu-north-1.amazonaws.com/test";
+const BASE_URL = import.meta.env.VITE_API_BASE_URL as string;
 
 export async function getSimulationDataByDay(idToken: string): Promise<DataPreview[]> {
   const url = `${BASE_URL}/names`;
