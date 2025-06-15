@@ -4,11 +4,8 @@ const BASE_URL = import.meta.env.VITE_API_BASE_URL as string;
 
 export async function getSimulationDataByDay(idToken: string): Promise<DataPreview[]> {
   const url = `${BASE_URL}/names`;
-//   console.log("[getSimulationDataByDay] Fetching:", url);
-//   console.log("[getSimulationDataByDay] Using idToken:", idToken);
 
   const res = await fetch(url, { headers: { "Authorization": idToken } });
-//   console.log("[getSimulationDataByDay] Response status:", res.status);
 
   if (!res.ok) {
     const errorText = await res.text();
@@ -17,9 +14,8 @@ export async function getSimulationDataByDay(idToken: string): Promise<DataPrevi
   }
 
   const filesByDate = await res.json();
-//   console.log("[getSimulationDataByDay] filesByDate:", filesByDate);
-
   const result: DataPreview[] = [];
+
   for (const day of filesByDate) {
     const date = day.date;
     const SimulationData: SimulationCard[] = day.files.map((file: string) => ({
@@ -30,7 +26,6 @@ export async function getSimulationDataByDay(idToken: string): Promise<DataPrevi
       SimulationData,
         })
   }
-//   console.log("[getSimulationDataByDay] Result:", result);
   return result;
 }
 
@@ -39,7 +34,6 @@ export async function getCsvFile(idToken: string, date: string, time: string) {
   const [yyyy, mm, dd] = date.split("-");
   const apiDate = `${dd}-${mm}-${yyyy}`;
 
-  // Convert time from HH-MM-SS to HH:MM:SS if needed
   const apiTime = time
 
   const url = new URL(`${BASE_URL}/data`);
@@ -60,7 +54,7 @@ export async function getCsvFile(idToken: string, date: string, time: string) {
 }
 
 export async function deleteSimulation(idToken: string, date: string, time: string) {
-  const apiDate = date.split("-").reverse().join("-");
+  const apiDate = date;
   const apiTime = time.replace(/:/g, "-");
   const url = "https://r5d6khydzg.execute-api.eu-north-1.amazonaws.com/test/data";
   const res = await fetch(url, {

@@ -9,6 +9,7 @@ import {
   deleteSimulation,
 } from "./Shared/ApiFunctionCaller";
 import type { SimulationCardByDay } from "./Shared/Interface";
+import { useNavigate } from "react-router-dom";
 
 function App() {
   const {
@@ -23,6 +24,7 @@ function App() {
   } = useContext(DataContext);
 
   const { idToken } = useContext(AuthContext);
+  const navigate = useNavigate(); 
 
   const [allSimulationCards, setAllSimulationCards] = useState<
     SimulationCardByDay[]
@@ -39,9 +41,9 @@ function App() {
         setAllSimulationCards(files);
       })
       .catch(() => {
-        // handle error, maybe redirect to /error
+        navigate("/error"); // Redirect to error page on failure
       });
-  }, [idToken]);
+  }, [idToken, navigate]);
 
   // Filter cards by interval
   useEffect(() => {

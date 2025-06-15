@@ -17,8 +17,6 @@ export const DataContext = createContext<{
   setDurationType: React.Dispatch<
     React.SetStateAction<{ value: string; label: string }[]>
   >;
-  dark: boolean;
-  setDark: (v: boolean) => void;
 }>({
   selectedStartingDate: "",
   setSelectedStartingDate: () => {},
@@ -32,6 +30,4 @@ export const DataContext = createContext<{
   setSimulationType: () => {},
   durationType: [],
   setDurationType: () => {},
-  dark: false,
-  setDark: () => {},
 });

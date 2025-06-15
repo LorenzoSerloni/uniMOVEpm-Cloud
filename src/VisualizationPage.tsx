@@ -2,7 +2,6 @@ import { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { getCsvFile } from "./Shared/ApiFunctionCaller";
 import { AuthContext } from "./Contexts/SettingAuth";
-import { DataContext } from "./Contexts/SettingsContext";
 import Navbar from "./Components/Navbar";
 import ChartSkeleton from "./Components/ChartSkeleton";
 import ChartCard from "./Components/ChartCard";
@@ -39,7 +38,6 @@ export default function Visualization() {
   const { date, title } = useParams();
   const realTime = title;
   const { idToken } = useContext(AuthContext);
-  const { dark } = useContext(DataContext);
   const [csvData, setCsvData] = useState<{
     headers: string[];
     data: string[][];
@@ -60,13 +58,12 @@ export default function Visualization() {
   if (!csvData) {
     return (
       <div
-        className={`h-dvh w-full flex flex-col ${
-          dark ? "bg-black" : "bg-white"
-        }`}
+        className={`h-dvh w-full flex flex-col bg-white
+        `}
       >
-        <Navbar height="h-17.5"/>
+        <Navbar height="h-17.5" />
         <div className="flex flex-col flex-1 items-center justify-center w-full overflow-auto h-full">
-          <HeaderRow date={date} realTime={realTime} dark={dark} />
+          <HeaderRow date={date} realTime={realTime} />
           <div className="w-full grid grid-cols-2 md:grid-cols-2 gap-8 px-8 py-8 col-span-1">
             {[...Array(4)].map((_, i) => (
               <ChartSkeleton key={i} />
@@ -101,11 +98,11 @@ export default function Visualization() {
 
   return (
     <div
-      className={`h-dvh w-full flex flex-col ${dark ? "bg-black" : "bg-white"}`}
+      className={`h-dvh w-full flex flex-col bg-white`}
     >
-      <Navbar height="h-17.5"/>
+      <Navbar height="h-17.5" />
       <div className="flex flex-col flex-1 items-center justify-center w-full overflow-auto h-full">
-        <HeaderRow date={date} realTime={realTime} dark={dark} />
+        <HeaderRow date={date} realTime={realTime} />
         <div className="w-full grid grid-cols-2 md:grid-cols-2 gap-8 px-8 py-8 col-span-1">
           {charts}
         </div>

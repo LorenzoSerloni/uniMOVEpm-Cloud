@@ -22,12 +22,6 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
     { value: string; label: string }[]
   >([]);
 
-  // Add dark mode state and persist in localStorage
-  const [dark, setDark] = useState<boolean>(() => {
-    const stored = localStorage.getItem("darkMode");
-    return stored ? JSON.parse(stored) : false;
-  });
-
   return (
     <DataContext.Provider
       value={{
@@ -43,8 +37,6 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
         setSimulationType,
         durationType,
         setDurationType,
-        dark,
-        setDark,
       }}
     >
       {children}

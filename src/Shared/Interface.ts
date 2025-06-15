@@ -1,12 +1,5 @@
 export interface SimulationCard {
   title: string;
-  // lasting: string;
-  // startingHour: string;
-  // endingHour: string;
-  // averageSpeed: string;
-  // RAMusage: string;
-  // CPUusage: string;
-  // tipology: string;
 }
 
 export interface DataPreview{

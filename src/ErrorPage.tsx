@@ -5,7 +5,6 @@ export default function ErrorPage() {
     <div className="h-dvh w-full bg-white flex flex-col">
       <Navbar />
       <div className="flex flex-1 items-center justify-center">
-        {/* Left: Univpm logo */}
         <div className="flex flex-col items-center justify-center pr-12">
           <img
             src="./Univpm.svg"
@@ -13,7 +12,6 @@ export default function ErrorPage() {
             className="h-32 w-auto mb-4"
           />
         </div>
-        {/* Right: Error content */}
         <div className="flex flex-col items-start justify-center gap-6 pl-12 border-l-2 border-gray-200">
           <div className="flex items-center gap-4">
             <svg
