@@ -92,7 +92,7 @@ All components communicate securely, and the architecture supports easy scaling 
 
 Below is the architecture diagram for UniMovePM Cloud:
 
-![Architecture Diagram](./public/Architetture.svg)
+![Architecture Diagram](./public/Architetture.png)
 
 ---
 
