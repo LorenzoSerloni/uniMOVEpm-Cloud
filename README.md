@@ -96,26 +96,25 @@ Below is the architecture diagram for UniMovePM Cloud:
 
 ---
 
-### Component Details
+### Services Overview
 
-- **Frontend (React App on Lightsail)**:  
-  Provides the user interface for authentication, simulation management, and data visualization. Deployed as a Docker container on AWS Lightsail, with images pulled from Docker Hub.
+
+- **Lightsail**:
+  It’s a service designed to simplify the management of AWS Virtual Private Clouds (VPCs) and enables rapid deployment of Docker containers to the cloud. This made it an ideal choice for our use case, which involved hosting a simple React frontend and connecting it to a cloud-based backend architecture.
 
 - **AWS Cognito**:  
-  Handles user authentication and authorization, issuing tokens used by the frontend to access protected resources.
+  This service is used to manage user authentication and authorization through JWT token-based logic, ensuring privacy and security for API endpoint access.
 
 - **API Gateway**:  
-  Exposes RESTful endpoints for the frontend, forwarding requests to Lambda functions.
+  Is used as a middleware to provide controlled access to the resources stored in the backend by exposing a public endpoint url and then protecting all the routes with the Cognito integration.
 
 - **AWS Lambda**:  
-  Stateless compute functions that process API requests, interact with S3 for data storage/retrieval, and enforce business logic.
+  A serverless computing service that enables running code without the need to manage servers or runtime environments. In this case, it was used as a proxy for the API Gateway, facilitating request handling and communication with the backend database.
 
 - **AWS S3**:  
-  Stores simulation session data, results, and any static assets needed by the application.
+  A highly scalable object storage service that allows you to store and retrieve any type of data from anywhere in the world.
 
 ---
-
-This architecture ensures that UniMovePM Cloud is robust, maintainable, and ready for production.
 
 ## Project Structure
 
