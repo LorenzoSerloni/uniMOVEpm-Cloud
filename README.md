@@ -70,51 +70,9 @@ Authentication is handled via AWS Cognito, and the app is ready for containerize
    The app will be available at [http://localhost:8080](http://localhost:8080).
 
 ---
+### Try the hosted service
+Click on the [link](https://architetture.83fk81g8730d2.eu-west-3.cs.amazonlightsail.com/) to try the AWS hosted service.
 
-## Architecture
-
-The architecture of **UniMovePM Cloud** is designed to be scalable, secure, and cloud-native, leveraging AWS managed services for authentication, storage, and compute. The system efficiently handles simulation data from autonomous vehicle sessions and provides a seamless analytics experience for users.
-
-### Overview
-
-At a high level, the architecture consists of:
-
-- **Frontend**: A React + Vite web application, containerized with Docker and deployed on AWS Lightsail for hosting.
-- **Authentication**: Managed by AWS Cognito, providing secure user login and token management.
-- **API Gateway**: Acts as the entry point for all backend API requests, routing them securely to AWS Lambda functions.
-- **Backend (Lambda)**: AWS Lambda functions process API requests, handle business logic, and interact with storage.
-- **Storage**: Simulation data and results are stored in AWS S3 buckets.
-- **Container Registry**: Docker images are stored in Docker Hub and deployed to Lightsail.
-
-All components communicate securely, and the architecture supports easy scaling and updates.
-
-### Diagram
-
-Below is the architecture diagram for UniMovePM Cloud:
-
-![Architecture Diagram](./public/Architetture.png)
-
----
-
-### Services Overview
-
-
-- **Lightsail**:
-  It’s a service designed to simplify the management of AWS Virtual Private Clouds (VPCs) and enables rapid deployment of Docker containers to the cloud. This made it an ideal choice for our use case, which involved hosting a simple React frontend and connecting it to a cloud-based backend architecture.
-
-- **AWS Cognito**:  
-  This service is used to manage user authentication and authorization through JWT token-based logic, ensuring privacy and security for API endpoint access.
-
-- **API Gateway**:  
-  Is used as a middleware to provide controlled access to the resources stored in the backend by exposing a public endpoint url and then protecting all the routes with the Cognito integration.
-
-- **AWS Lambda**:  
-  A serverless computing service that enables running code without the need to manage servers or runtime environments. In this case, it was used as a proxy for the API Gateway, facilitating request handling and communication with the backend database.
-
-- **AWS S3**:  
-  A highly scalable object storage service that allows you to store and retrieve any type of data from anywhere in the world.
-
----
 
 ## Project Structure
 
@@ -134,14 +92,6 @@ docker-compose.yml
 vite.config.ts
 .gitignore
 ```
-
----
-
-## Customization
-
-- **Cognito:** Configured AWS Cognito settings in the authentication context/provider.
-- **API:** Update related API calls in `src/Shared/ApiFunctionCaller.ts` as needed.
-- **Styling:** Tailwind CSS is used for styling.
 
 ---
 
