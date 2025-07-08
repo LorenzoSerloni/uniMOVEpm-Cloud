@@ -73,6 +73,7 @@ Authentication is handled via AWS Cognito, and the app is ready for containerize
 ### Try the hosted service
 Click on the [link](https://architetture.83fk81g8730d2.eu-west-3.cs.amazonlightsail.com/) to try the AWS hosted service.
 
+To gain access to the service refer to `S1109048@studenti.univpm.it` (Simone Marconi) or `S1109161@studenti.univpm.it` (Lorenzo Serloni)
 
 ## Project Structure
 
