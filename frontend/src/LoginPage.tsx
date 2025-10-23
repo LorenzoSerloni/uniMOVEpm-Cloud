@@ -49,7 +49,7 @@ export default function LoginPage() {
       });
       if (response.ok) {
         await new Promise((resolve) => setTimeout(resolve, 100));
-        const authCookie = getCookie("auth");
+        const authCookie = getCookie("auth-cloud");
         if (authCookie) {
           await login(authCookie);
         } else {
@@ -84,7 +84,7 @@ export default function LoginPage() {
         <div className="w-full h-full flex flex-row justify-between items-center mr-10">
           <div className="h-full flex flex-row items-center pl-8 gap-6">
             <img src="./logo.svg" className="h-4/6" alt="logo" />
-            <div className="text-3xl font-bold text-white">uniMOVEpm</div>
+            <div className="text-3xl font-bold text-white">uniMOVEpm Analytics</div>
           </div>
         </div>
 
@@ -92,12 +92,12 @@ export default function LoginPage() {
       <div className="flex flex-row w-full h-full items-center justify-evenly border-[#121212]">
         <img
           src={"./Univpm.svg"}
-          className="w-2/6 2xl:h-1/6 mt-30"
+          className="w-2/6 2xl:h-1/6 mt-10"
           alt="logo"
         />
         <form
           onSubmit={handleLogin}
-          className="lg:w-96 lg:py-12 py-4 mt-30 px-4 rounded-lg text-center bg-none flex flex-col justify-center items-center"
+          className="lg:w-96 lg:py-12 py-4 mt-10 px-4 rounded-lg text-center bg-none flex flex-col justify-center items-center"
         >
           <h1 className="text-4xl font-bold text-[#121212] py-4 border-b-2 border-[#121212]">
             Login Form

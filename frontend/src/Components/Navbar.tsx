@@ -5,7 +5,7 @@ interface NavbarProps {
   height?: string;
 }
 
-export default function Navbar({ height = "h-20" }: NavbarProps) {
+export default function Navbar({ height = "h-40" }: NavbarProps) {
   const navigate = useNavigate()
   const handleLogout = async () => {
     const mode = import.meta.env.VITE_MODE;
@@ -38,7 +38,7 @@ export default function Navbar({ height = "h-20" }: NavbarProps) {
     >
       <div className="flex flex-row items-center gap-8">
         <img src="/logo.svg" className="h-8" alt="logo" />
-        <h1>uniMOVEpm-Cloud</h1>
+        <h1>uniMOVEpm Analytics</h1>
       </div>
       <div className="flex flex-row items-center gap-6">
         <IoMdLogOut

@@ -1,0 +1,7 @@
+# Ignore contents of map and data folders
+src/map/*
+src/data/*
+
+# Keep the folders themselves
+!src/map/.gitkeep
+!src/data/.gitkeep

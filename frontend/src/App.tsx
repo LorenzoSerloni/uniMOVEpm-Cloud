@@ -99,7 +99,7 @@ function App() {
 
   return (
     <div className="h-dvh w-full bg-white flex flex-col">
-      <Navbar />
+      <Navbar height="h-20"/>
       <div className="h-1/10 w-full flex flex-row justify-center items-center pb-3 text-2xl font-bold bg-none gap-2 pt-20 ">
         <img src="./chart.svg" alt="chart" className="h-12 mr-2" />
         <h1>Search your session</h1>

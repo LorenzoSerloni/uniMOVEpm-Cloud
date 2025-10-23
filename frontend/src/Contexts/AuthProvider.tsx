@@ -16,7 +16,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   };
 
   useMemo(() => {
-    const coockies = getCookie("auth");
+    const coockies = getCookie("auth-cloud");
     console.log(coockies)
     const user = coockies ? "auth" : null;
     setUser(user)

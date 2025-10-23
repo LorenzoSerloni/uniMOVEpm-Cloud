@@ -8,8 +8,7 @@ import { ProtectedRoute } from "./ProtectedRoute";
 export default function Router() {
   return (
     <Routes>
-      <Route path="/login" element={<LoginPage/>}>
-      </Route>
+      <Route path="/login" element={<LoginPage />}></Route>
       <Route
         path="/"
         element={
@@ -20,6 +19,14 @@ export default function Router() {
       />
       <Route
         path="/visualization/:date/:title"
+        element={
+          <ProtectedRoute>
+            <Visualization />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/map/:date/:title"
         element={
           <ProtectedRoute>
             <Visualization />

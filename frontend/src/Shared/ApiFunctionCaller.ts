@@ -73,3 +73,39 @@ export async function deleteSimulation(date: string, time: string) {
     throw new Error(errorText || "Failed to delete simulation");
   }
 }
+
+export async function downloadCsvFile(date: string, time: string) {
+  const url = new URL(`http://${BASE_URL}:5001/download`);
+  url.searchParams.append("date", date);
+  url.searchParams.append("time", time);
+
+  try {
+    const res = await fetch(url.toString(), { method: "GET" });
+
+    if (!res.ok) {
+      const errorText = await res.text();
+      console.error("[downloadCsvFile] Error response:", errorText);
+      throw new Error("Failed to fetch CSV file");
+    }
+
+    // Convert response to Blob
+    const blob = await res.blob();
+
+    // Create a temporary link to trigger download
+    const blobUrl = window.URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = blobUrl;
+    a.download = `${date}_${time}.csv`;
+    document.body.appendChild(a);
+    a.click();
+
+    // Cleanup
+    a.remove();
+    window.URL.revokeObjectURL(blobUrl);
+
+    console.log(`[downloadCsvFile] Downloaded: ${date}_${time}.csv`);
+  } catch (error) {
+    console.error("Error downloading CSV file:", error);
+    throw error;
+  }
+}

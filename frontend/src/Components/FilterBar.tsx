@@ -28,7 +28,7 @@ FiltersBarProps) => (
       <div className="flex w-80 pl-2 font-semibold">Pick Starting Date:</div>
       <div className="w-80 h-7.5">
         <DatePicker
-          title="Start Date Selector"
+          title="Start"
           selectedDate={selectedStartingDate}
           setSelectDate={setSelectedStartingDate}
           selectedTime={selectedStartingTime}
@@ -41,7 +41,7 @@ FiltersBarProps) => (
       <div className="flex w-80 pl-2 font-semibold">Pick Ending Date:</div>
       <div className="w-80 h-7.5">
         <DatePicker
-          title="End Date Selector"
+          title="End"
           selectedDate={selectedEndingDate}
           setSelectDate={setSelectedEndingDate}
           selectedTime={selectedEndingTime}

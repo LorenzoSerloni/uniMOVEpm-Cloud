@@ -4,16 +4,16 @@ import { format } from "date-fns";
 
 export const DataProvider = ({ children }: { children: ReactNode }) => {
   const [selectedStartingDate, setSelectedStartingDate] = useState<string>(
-    localStorage.getItem("startingDate") || format(new Date(), "yyyy-MM-dd")
+    localStorage.getItem("selectedDate-Start") || format(new Date(), "yyyy-MM-dd")
   );
   const [selectedStartingTime, setSelectedStartingTime] = useState<string>(
-    format(new Date(), "HH:mm:ss")
+    localStorage.getItem("selectedTime-Start") || format(new Date(), "HH:mm:ss")
   );
   const [selectedEndingDate, setSelectedEndingDate] = useState<string>(
-    localStorage.getItem("endingDate") || format(new Date(), "yyyy-MM-dd")
+    localStorage.getItem("selectedDate-End") || format(new Date(), "yyyy-MM-dd")
   );
   const [selectedEndingTime, setSelectedEndingTime] = useState<string>(
-    format(new Date(), "HH:mm:ss")
+    localStorage.getItem("selectedTime-Ednd") || format(new Date(), "HH:mm:ss")
   );
   const [simulationType, setSimulationType] = useState<
     { value: string; label: string }[]
