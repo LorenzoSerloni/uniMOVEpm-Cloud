@@ -15,6 +15,7 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
+import zoomPlugin from "chartjs-plugin-zoom";
 import MapView from "./MapView";
 import type { Point } from "./Shared/Interface";
 import MapSearch from "./Components/MapSearch";
@@ -26,7 +27,8 @@ Chart.register(
   LineElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  zoomPlugin
 );
 
 function parseCSV(csv: string) {
